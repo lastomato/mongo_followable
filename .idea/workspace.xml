@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46dc3a6d-3a97-49f8-becd-2ccba8c07e42" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.rdoc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Rakefile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/follow.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/mongo_followable.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/mongo_followable/followable.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/mongo_followable/follower.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/mongo_followable/version.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongo_followable.gemspec" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/mongo/followable_spec.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/mongo_mapper/group.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/mongo_mapper/user.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/mongoid/group.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/mongoid/user.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.rdoc" afterPath="$PROJECT_DIR$/README.rdoc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/mongo_followable/followable.rb" afterPath="$PROJECT_DIR$/lib/mongo_followable/followable.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/mongo_followable/follower.rb" afterPath="$PROJECT_DIR$/lib/mongo_followable/follower.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/mongo_followable/version.rb" afterPath="$PROJECT_DIR$/lib/mongo_followable/version.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mongo_followable.gemspec" afterPath="$PROJECT_DIR$/mongo_followable.gemspec" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/mongo/followable_spec.rb" afterPath="$PROJECT_DIR$/spec/mongo/followable_spec.rb" />
     </list>
     <ignored path="mongo_followable.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,17 +46,18 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app/models/follow.rb" />
-        <option value="$PROJECT_DIR$/lib/mongo_followable/followable.rb" />
-        <option value="$PROJECT_DIR$/lib/mongo_followable/follower.rb" />
         <option value="$PROJECT_DIR$/spec/mongo_mapper/group.rb" />
         <option value="$PROJECT_DIR$/spec/mongo_mapper/user.rb" />
         <option value="$PROJECT_DIR$/spec/mongoid/group.rb" />
         <option value="$PROJECT_DIR$/spec/mongoid/user.rb" />
-        <option value="$PROJECT_DIR$/spec/mongo/followable_spec.rb" />
-        <option value="$PROJECT_DIR$/mongo_followable.gemspec" />
-        <option value="$PROJECT_DIR$/README.rdoc" />
         <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
         <option value="$PROJECT_DIR$/lib/mongo_followable.rb" />
+        <option value="$PROJECT_DIR$/lib/mongo_followable/follower.rb" />
+        <option value="$PROJECT_DIR$/lib/mongo_followable/followable.rb" />
+        <option value="$PROJECT_DIR$/lib/mongo_followable/version.rb" />
+        <option value="$PROJECT_DIR$/spec/mongo/followable_spec.rb" />
+        <option value="$PROJECT_DIR$/README.rdoc" />
+        <option value="$PROJECT_DIR$/mongo_followable.gemspec" />
       </list>
     </option>
   </component>
@@ -96,8 +87,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -113,74 +102,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mongo_followable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongo_followable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongo_followable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongo_followable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongo_followable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongoid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongo_followable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongo_followable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongo_mapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongo_followable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongo_followable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -236,6 +157,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="RecentsManager">
@@ -264,30 +187,31 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="46dc3a6d-3a97-49f8-becd-2ccba8c07e42" name="Default" comment="" />
       <created>1320633827964</created>
       <updated>1320633827964</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1600" height="852" extended-state="0" />
+    <frame x="1" y="24" width="1599" height="851" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963988" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24936387" sideWeight="0.6703601" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19796307" sideWeight="0.6703601" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963988" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -323,114 +247,96 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/mongo_followable/version.rb">
+    <entry file="file://$PROJECT_DIR$/LICENSE.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rakefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/mongo_mapper/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="15" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/mongo_mapper/group.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="15" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/mongoid/group.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="16" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="3" column="15" selection-start="86" selection-end="86" vertical-scroll-proportion="0.06521739" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/mongoid/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="15" selection-start="54" selection-end="54" vertical-scroll-proportion="0.04341534">
-          <folding />
-        </state>
+        <state line="2" column="15" selection-start="54" selection-end="54" vertical-scroll-proportion="0.04347826" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mongo_followable/follower.rb">
+    <entry file="file://$PROJECT_DIR$/spec/mongoid/group.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="7" selection-start="627" selection-end="627" vertical-scroll-proportion="0.30973452">
-          <folding />
-        </state>
+        <state line="1" column="16" selection-start="28" selection-end="28" vertical-scroll-proportion="0.02173913" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mongo_followable/followable.rb">
+    <entry file="file://$PROJECT_DIR$/spec/mongo_mapper/group.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2" column="15" selection-start="59" selection-end="59" vertical-scroll-proportion="0.04347826" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/follow.rb">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="30" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mongo_followable.rb">
+    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="48" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
+        <state line="24" column="46" selection-start="788" selection-end="788" vertical-scroll-proportion="0.5217391" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mongo_followable/version.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="18" selection-start="41" selection-end="41" vertical-scroll-proportion="0.02173913" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mongo_followable.gemspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="35" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.rdoc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="37" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0">
+        <state line="41" column="25" selection-start="1130" selection-end="1130" vertical-scroll-proportion="-0.9712991">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
+    <entry file="file://$PROJECT_DIR$/app/models/follow.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mongo_followable.gemspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="57" selection-start="807" selection-end="807" vertical-scroll-proportion="0.41244572">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="66" selection-start="618" selection-end="618" vertical-scroll-proportion="0.45586106">
+        <state line="10" column="30" selection-start="263" selection-end="263" vertical-scroll-proportion="0.2173913">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/mongo/followable_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="64" selection-start="642" selection-end="642" vertical-scroll-proportion="0.7163531">
+        <state line="146" column="45" selection-start="3667" selection-end="3667" vertical-scroll-proportion="0.26086956">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mongo_followable/follower.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="152" column="34" selection-start="4717" selection-end="4717" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mongo_followable/followable.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="54" selection-start="3607" selection-end="3607" vertical-scroll-proportion="0.022156574">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mongo_followable.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="48" selection-start="301" selection-end="301" vertical-scroll-proportion="0.13043478">
           <folding />
         </state>
       </provider>

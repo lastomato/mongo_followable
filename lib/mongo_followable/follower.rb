@@ -147,6 +147,12 @@ module Mongo
       end
     end
 
+    # unfollow all
+
+    def unfollow_all
+      unfollow(*self.all_followees)
+    end
+
     # get the number of followees
     #
     # Example:

@@ -109,6 +109,21 @@ module Mongo
       rebuild_instances(self.followers)
     end
 
+    def unfollowed(*models)
+      models.each do |model|
+        unless model == self or !self.followee_of?(model) or !model.follower_of?(self) or self.cannot_followed.include?(model.class.name) or model.cannot_follow.include?(self.class.name)
+          model.followees.by_model(self).first.destroy
+          self.followers.by_model(model).first.destroy
+        end
+      end
+    end
+
+    # unfollow all
+
+    def unfollowed_all
+      unfollowed(*self.all_followers)
+    end
+
     # get all the followers of this model in certain type
     #
     # Example:

@@ -7,19 +7,19 @@ Now works for both Mongoid and Mongo_Mapper!
 In console:
   gem install mongo_followable
 or in Gemfile:
-  gem 'mongo_followable', "~> 0.2.0"
+  gem 'mongo_followable', "~> 0.2.1"
 
 == Usage
 
 To make model followable you need to include Mongo::Followable into your document;Meanwhile, you also need to include Mongo::Follower in your follower model:
   class User
-    include Mongoid::Document  #for Mongo_Mapper users, this line of code should be 'include MongoMapper::Document
+    include Mongoid::Document  #for Mongo_Mapper users, this line of code should be include MongoMapper::Document
     include Mongo::Followable
     include Mongo::Follower
   end
 
   class Group
-    include Mongoid::Document  #for Mongo_Mapper users, this line of code should be 'include MongoMapper::Document
+    include Mongoid::Document  #for Mongo_Mapper users, this line of code should be include MongoMapper::Document
     include Mongo::Followable
   end
 
@@ -34,6 +34,12 @@ And then you can follow a model:
 
     current_user.follow(@group)
     current_user.unfollow(@group)
+    current_user.unfollow_all
+
+or,
+
+    @group.unfollowed(current_user)
+    @group.unfollowed_all
 
 You can also judge whether a model is a follower of another model or a model is a followee of another model:
     	

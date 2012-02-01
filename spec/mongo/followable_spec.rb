@@ -14,29 +14,32 @@ describe Mongo::Followable do
         @v = User.new
         @v.save
 
+        @w = User.new
+        @w.save
+
         @g = Group.new
         @g.save
       end
 
       it "following a user" do
-        u.follow(@v)
+        u.follow(@v, @g)
 
         u.follower_of?(@v).should be_true
         @v.followee_of?(u).should be_true
 
-        u.all_followees.should == [@v]
+        u.all_followees.should == [@v, @g]
         @v.all_followers.should == [u]
 
         u.followees_by_type("user").should == [@v]
         @v.followers_by_type("user").should == [u]
 
-        u.followees_count.should == 1
+        u.followees_count.should == 2
         @v.followers_count.should == 1
 
         u.followees_count_by_type("user").should == 1
         @v.followers_count_by_type("user").should == 1
 
-        u.ever_follow.should == [@v]
+        u.ever_follow.should =~ [@v, @g]
         @v.ever_followed.should == [u]
 
         u.common_followees?(@v).should be_false
@@ -50,8 +53,8 @@ describe Mongo::Followable do
         User.with_max_followers_by_type('user').should == [@v]
       end
 
-      it "unfollowing a user" do
-        u.unfollow(@v)
+      it "unfollowing" do
+        u.unfollow_all
 
         u.follower_of?(@v).should be_false
         @v.followee_of?(u).should be_false
@@ -89,7 +92,7 @@ describe Mongo::Followable do
 
         u.follow(@v)
 
-        u.ever_follow.should == [@g, @v]
+        u.ever_follow.should =~ [@g, @v]
         @g.ever_followed.should == [u]
 
         u.common_followees?(@v).should be_false
@@ -120,6 +123,51 @@ describe Mongo::Followable do
 
         u.followees_count_by_type("group").should == 0
         @g.followers_count_by_type("group").should == 0
+
+      end
+    end
+  end
+
+  describe Group do
+    let!(:g) { Group.new }
+
+    context "begins" do
+
+      before do
+      	g.save
+
+        @v = User.new
+        @w = User.new
+        @u = User.new
+
+        [@v, @w, @u].each { |u| u.save }
+      end
+
+
+      it "another way to unfollow a group" do
+        @u.follow(g)
+        @v.follow(g)
+        @w.follow(g)
+
+        g.all_followers.should =~ [@v,@u,@w]
+
+        @w.follower_of?(g).should be_true
+        g.followee_of?(@w).should be_true
+
+        #g.unfollowed(@w)
+
+        @u.follower_of?(g).should be_true
+        g.followee_of?(@u).should be_true
+
+        @v.follower_of?(g).should be_true
+        g.followee_of?(@v).should be_true
+
+        #g.all_followers.should =~ [@v,@u]
+
+        g.unfollowed_all
+
+        g.all_followers == []
+
       end
     end
   end
