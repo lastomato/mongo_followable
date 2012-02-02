@@ -29,7 +29,7 @@ Now you can set authorization:
     current_user.set_authorization('user', 'game') # now current_user cannot follow User and Game model
     current_user.unset_authorization('User', 'Game')
 
-And then you can follow a model:
+And then you can follow and unfollow:
 
     @group = Group.new
     @group.save
@@ -37,6 +37,9 @@ And then you can follow a model:
     current_user.follow(@group)
     current_user.unfollow(@group)
     current_user.unfollow_all
+
+    current_user.follow(*array_of_objects_to_follow) # follow an array of objects
+    current_user.unfollow(*array_of_objects_to_follow) # unfollow
 
 or,
 
