@@ -42,7 +42,7 @@ or,
     @group.unfollowed_all
 
 You can also judge whether a model is a follower of another model or a model is a followee of another model:
-    	
+
     current_user.follower_of?(@group)
     current_user.followee_of?(@group)
 

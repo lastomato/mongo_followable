@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Jie Fan"]
   s.email       = ["ustc.flyingfox@gmail.com"]
   s.homepage    = "https://github.com/lastomato/mongo_followable"
-  s.summary     = %q{ adds following feature to mongoid }
-  s.description = %q{ Mongo Followable adds following feature to mongoid }
+  s.summary     = %q{ adds following feature to mongoid/mongo_mapper }
+  s.description = %q{ Mongo Followable adds following feature to mongoid/mongo_mapper }
 
   s.rubyforge_project = "mongo_followable"
 

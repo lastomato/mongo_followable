@@ -11,7 +11,7 @@ if rand > 0.5
   require File.expand_path("../mongoid/user", __FILE__)
   require File.expand_path("../mongoid/group", __FILE__)
   Mongoid.configure do |config|
-    name = 'voteable_mongo_test'
+    name = 'mongo_followable_test'
     host = 'localhost'
     config.master = Mongo::Connection.new.db(name)
     config.autocreate_indexes = true
@@ -22,7 +22,7 @@ else
   require File.expand_path("../../lib/mongo_followable", __FILE__)
   require File.expand_path("../mongo_mapper/user", __FILE__)
   require File.expand_path("../mongo_mapper/group", __FILE__)
-  MongoMapper.database = 'voteable_mongo_test'
+  MongoMapper.database = 'mongo_followable_test'
 end
 
 RSpec.configure do |c|

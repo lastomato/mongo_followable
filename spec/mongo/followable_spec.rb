@@ -169,6 +169,18 @@ describe Mongo::Followable do
         g.all_followers == []
 
       end
+
+      it "another way to unfollow a group" do
+        @u.follow(g)
+        g.unfollowed(@u)
+      end
+
+      it "another way to unfollow a group" do
+
+        g.all_followers.should == []
+      end
+
+
     end
   end
 end
