@@ -9,7 +9,7 @@ see http://www.thesika.info/articles/mongo_followable_update for details
 In console:
   gem install mongo_followable
 or in Gemfile:
-  gem 'mongo_followable', "~> 0.2.1"
+  gem 'mongo_followable', "~> 0.2.3"
 
 == Usage
 
