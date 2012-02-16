@@ -4,10 +4,10 @@
     <list default="true" id="46dc3a6d-3a97-49f8-becd-2ccba8c07e42" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.rdoc" afterPath="$PROJECT_DIR$/README.rdoc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/mongo_followable/followable.rb" afterPath="$PROJECT_DIR$/lib/mongo_followable/followable.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/mongo_followable/follower.rb" afterPath="$PROJECT_DIR$/lib/mongo_followable/follower.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/mongo_followable/version.rb" afterPath="$PROJECT_DIR$/lib/mongo_followable/version.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mongo_followable.gemspec" afterPath="$PROJECT_DIR$/mongo_followable.gemspec" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/mongo/followable_spec.rb" afterPath="$PROJECT_DIR$/spec/mongo/followable_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/spec_helper.rb" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" />
     </list>
     <ignored path="mongo_followable.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,10 +31,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="version.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/mongo_followable/version.rb">
+      <file leaf-file-name="followable.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/mongo_followable/followable.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="18" selection-start="41" selection-end="41" vertical-scroll-proportion="0.02173913">
+            <state line="127" column="36" selection-start="3865" selection-end="3865" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.rdoc" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.rdoc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="83" selection-start="1649" selection-end="1649" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="follower.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/mongo_followable/follower.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="160" column="34" selection-start="4901" selection-end="4901" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="followable_spec.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spec/mongo/followable_spec.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="216" column="9" selection-start="4887" selection-end="4887" vertical-scroll-proportion="0.7826087">
               <folding />
             </state>
           </provider>
@@ -60,13 +87,13 @@
         <option value="$PROJECT_DIR$/spec/mongoid/group.rb" />
         <option value="$PROJECT_DIR$/spec/mongoid/user.rb" />
         <option value="$PROJECT_DIR$/lib/mongo_followable.rb" />
-        <option value="$PROJECT_DIR$/lib/mongo_followable/follower.rb" />
-        <option value="$PROJECT_DIR$/spec/mongo/followable_spec.rb" />
         <option value="$PROJECT_DIR$/mongo_followable.gemspec" />
         <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
-        <option value="$PROJECT_DIR$/README.rdoc" />
-        <option value="$PROJECT_DIR$/lib/mongo_followable/followable.rb" />
         <option value="$PROJECT_DIR$/lib/mongo_followable/version.rb" />
+        <option value="$PROJECT_DIR$/lib/mongo_followable/follower.rb" />
+        <option value="$PROJECT_DIR$/lib/mongo_followable/followable.rb" />
+        <option value="$PROJECT_DIR$/README.rdoc" />
+        <option value="$PROJECT_DIR$/spec/mongo/followable_spec.rb" />
       </list>
     </option>
   </component>
@@ -96,7 +123,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -161,6 +188,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="mongo_mapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongo_followable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongo_followable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="mongo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -199,7 +244,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="RecentsManager">
@@ -208,6 +253,24 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="RubyRunConfigurationType" factoryName="Ruby">
+      <module name="" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -333,51 +396,49 @@
         <state line="6" column="48" selection-start="301" selection-end="301" vertical-scroll-proportion="0.13043478" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/mongo/followable_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="25" selection-start="3888" selection-end="3888" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.rdoc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="20" selection-start="965" selection-end="965" vertical-scroll-proportion="0.02173913">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="42" selection-start="786" selection-end="786" vertical-scroll-proportion="0.5217391">
-          <folding />
-        </state>
+        <state line="24" column="42" selection-start="786" selection-end="786" vertical-scroll-proportion="0.5217391" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mongo_followable.gemspec">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="48" selection-start="408" selection-end="408" vertical-scroll-proportion="0.2173913">
+        <state line="10" column="48" selection-start="408" selection-end="408" vertical-scroll-proportion="0.2173913" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mongo_followable/version.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="18" selection-start="41" selection-end="41" vertical-scroll-proportion="0.02173913">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/mongo_followable/follower.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="34" selection-start="4717" selection-end="4717" vertical-scroll-proportion="-0.5096012">
+        <state line="160" column="34" selection-start="4901" selection-end="4901" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/mongo_followable/followable.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="0" selection-start="2647" selection-end="2662" vertical-scroll-proportion="0.044313148">
+        <state line="127" column="36" selection-start="3865" selection-end="3865" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mongo_followable/version.rb">
+    <entry file="file://$PROJECT_DIR$/README.rdoc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="18" selection-start="41" selection-end="41" vertical-scroll-proportion="0.02173913" />
+        <state line="53" column="83" selection-start="1649" selection-end="1649" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/mongo/followable_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="216" column="9" selection-start="4887" selection-end="4887" vertical-scroll-proportion="0.7826087">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

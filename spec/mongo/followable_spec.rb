@@ -183,4 +183,38 @@ describe Mongo::Followable do
 
     end
   end
+
+  describe User do
+
+    context "begins" do
+
+      before do
+        @u = User.new
+        @u.save
+
+        @v = User.new
+        @v.save
+
+        @w = User.new
+        @w.save
+
+        @g = Group.new
+        @g.save
+      end
+
+
+      it "block test" do
+        @u.follow(@v, @w, @g) {|m| m.class == User}
+
+        @u.all_followees.should =~ [@v, @w]
+
+      end
+
+      it "block test unfollow" do
+        @u.unfollow(@v, @w, @g) {|m| m.followee_of? @u}
+
+        @u.all_followees.should == []
+      end
+    end
+  end
 end

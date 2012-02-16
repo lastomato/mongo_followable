@@ -109,7 +109,11 @@ module Mongo
       rebuild_instances(self.followers)
     end
 
-    def unfollowed(*models)
+    def unfollowed(*models, &block)
+      if block_given?
+        models.delete_if { |model| !yield(model) }
+      end
+
       models.each do |model|
         unless model == self or !self.followee_of?(model) or !model.follower_of?(self) or self.cannot_followed.include?(model.class.name) or model.cannot_follow.include?(self.class.name)
           model.followees.by_model(self).first.destroy

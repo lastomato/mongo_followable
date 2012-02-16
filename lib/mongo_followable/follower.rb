@@ -123,7 +123,11 @@ module Mongo
 
     # follow some model
 
-    def follow(*models)
+    def follow(*models, &block)
+      if block_given?
+        models.delete_if { |model| !yield(model) }
+      end
+
       models.each do |model|
         unless model == self or self.follower_of?(model) or model.followee_of?(self) or self.cannot_follow.include?(model.class.name) or model.cannot_followed.include?(self.class.name)
           model.followers.create!(:f_type => self.class.name, :f_id => self.id.to_s)
@@ -138,7 +142,11 @@ module Mongo
 
     # unfollow some model
 
-    def unfollow(*models)
+    def unfollow(*models, &block)
+      if block_given?
+        models.delete_if { |model| !yield(model) }
+      end
+
       models.each do |model|
         unless model == self or !self.follower_of?(model) or !model.followee_of?(self) or self.cannot_follow.include?(model.class.name) or model.cannot_followed.include?(self.class.name)
           model.followers.by_model(self).first.destroy
