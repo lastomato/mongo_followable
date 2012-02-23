@@ -49,9 +49,9 @@ or,
 It's also possible to pass a block:
 
     current_user.follow(u1, u2, u3, u4...) { |user| user.name == 'Jeremy Lin' }
-    current_user.unfollow(u1, u2, u3, u4...) { |user| user.followee_of? 'Kobe Bryant' }
+    current_user.unfollow(u1, u2, u3, u4...) { |user| user.followee_of? @kobe_bryant }
 
-    @group.unfollowed(u1, u2, u3...) { |user| user.ever_follow.include @some_user }
+    @group.unfollowed(u1, u2, u3...) { |user| user.ever_follow.include? @some_user }
 
 You can also judge whether a model is a follower of another model or a model is a followee of another model:
 
