@@ -217,4 +217,34 @@ describe Mongo::Followable do
       end
     end
   end
+
+  describe ChildUser do
+
+    context "begins" do
+
+      before do
+        @u = ChildUser.new
+        @u.save
+
+        @w = User.new
+        @w.save
+
+        @g = Group.new
+        @g.save
+      end
+
+
+      it "inherited model test" do
+        @u.follow(@v, @w, @g) {|m| m.class == User}
+
+        @u.all_followees.should == [@w]
+
+        @u.followees_by_type("user") == [@w]
+
+        @w.followers_by_type("child_user") == [@u]
+        @w.followers_by_type("childUser") == [@u]
+        @w.followers_by_type("ChildUser") == [@u]
+      end
+    end
+  end
 end

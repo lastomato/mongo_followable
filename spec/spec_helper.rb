@@ -10,6 +10,7 @@ if rand > 0.5
   require File.expand_path("../../lib/mongo_followable", __FILE__)
   require File.expand_path("../mongoid/user", __FILE__)
   require File.expand_path("../mongoid/group", __FILE__)
+  require File.expand_path("../mongoid/childuser", __FILE__)
   Mongoid.configure do |config|
     name = 'mongo_followable_test'
     host = 'localhost'
@@ -22,6 +23,7 @@ else
   require File.expand_path("../../lib/mongo_followable", __FILE__)
   require File.expand_path("../mongo_mapper/user", __FILE__)
   require File.expand_path("../mongo_mapper/group", __FILE__)
+  require File.expand_path("../mongo_mapper/childuser", __FILE__)
   MongoMapper.database = 'mongo_followable_test'
 end
 

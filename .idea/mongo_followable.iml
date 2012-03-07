@@ -4,7 +4,17 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] bundler (v1.0.21, /home/tomato/.rvm/gems/ruby-1.9.2-p136/gems/bundler-1.0.21)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bson (v1.5.2, RVM: ruby-1.9.2-p136) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bson_ext (v1.5.2, RVM: ruby-1.9.2-p136) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="builder (v3.0.0, RVM: ruby-1.9.2-p136) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.0.22, RVM: ruby-1.9.2-p136) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.1.3, RVM: ruby-1.9.2-p136) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.0, RVM: ruby-1.9.2-p136) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mongo (v1.5.2, RVM: ruby-1.9.2-p136) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mongoid (v2.4.6, RVM: ruby-1.9.2-p136) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.0.4, RVM: ruby-1.9.2-p136) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rspec (v2.7.0, RVM: ruby-1.9.2-p136) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tzinfo (v0.3.31, RVM: ruby-1.9.2-p136) [gem]" level="application" />
   </component>
 </module>
 

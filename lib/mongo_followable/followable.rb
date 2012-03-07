@@ -77,14 +77,15 @@ module Mongo
 
     def set_authorization(*models)
       models.each do |model|
-        self.cannot_followed << model.capitalize
+
+        self.cannot_followed << model.safe_capitalize
       end
       self.save
     end
 
     def unset_authorization(*models)
       models.each do |model|
-        self.cannot_followed -= [model.capitalize]
+        self.cannot_followed -= [model.safe_capitalize]
       end
       self.save
     end
@@ -196,7 +197,7 @@ module Mongo
       def rebuild_instances(follows)
         follow_list = []
         follows.each do |follow|
-          follow_list << follow.f_type.capitalize.constantize.find(follow.f_id)
+          follow_list << follow.f_type.constantize.find(follow.f_id)
         end
         follow_list
       end

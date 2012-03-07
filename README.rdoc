@@ -76,6 +76,11 @@ Getting a model's followers/followees by type is also possible:
     @group.followers_by_type("user")
     @user.followees_by_type("group")
 
+For inherited model:
+
+    @group.followers_by_type("user_post") # both are fine
+    @user.followees_by_type("GroupPost")
+
 And their count:
 
     @group.followers_by_type("user")
