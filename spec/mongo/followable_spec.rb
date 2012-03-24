@@ -24,6 +24,10 @@ describe Mongo::Followable do
       it "following a user" do
         u.follow(@v, @g)
 
+        u.following?.should be_true
+        @v.followed?.should be_true
+        @g.followed?.should be_true
+
         u.follower_of?(@v).should be_true
         @v.followee_of?(u).should be_true
 

@@ -13,7 +13,7 @@ or in Gemfile:
 
 == Usage
 
-To make model followable you need to include Mongo::Followable into your document;Meanwhile, you also need to include Mongo::Follower in your follower model:
+To make model followable you need to include Mongo::Followable into your model; You also need to include Mongo::Follower in your follower model:
   class User
     include Mongoid::Document  #for Mongo_Mapper users, this line of code should be include MongoMapper::Document
     include Mongo::Followable
@@ -57,6 +57,11 @@ You can also judge whether a model is a follower of another model or a model is 
 
     current_user.follower_of?(@group)
     current_user.followee_of?(@group)
+
+or whether a model is following some other model and vice versa:
+
+    current_user.following?
+    @group.followed?
 
 Moreover, it's easy to get a model's follower/followee count:
 

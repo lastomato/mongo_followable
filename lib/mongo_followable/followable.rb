@@ -43,29 +43,43 @@ module Mongo
       #   >> Group.with_max_followers_by_type('user')
       #   => [@ruby]
 
-      def method_missing(name, *args)
-        if name.to_s =~ /^with_(max|min)_followers$/i
+      ["max", "min"].each do |s|
+        define_method(:"with_#{s}_followers") do
           follow_array = self.all.to_a.sort! { |a, b| a.followers_count <=> b.followers_count }
-          if $1 == "max"
-            max = follow_array[-1].followers_count
-            follow_array.select { |c| c.followers_count == max }
-          elsif $1 == "min"
-            min = follow_array[0].followers_count
-            follow_array.select { |c| c.followers_count == min }
-          end
-        elsif name.to_s =~ /^with_(max|min)_followers_by_type$/i
+          num = follow_array[-1].followers_count
+          follow_array.select { |c| c.followers_count == num }
+        end
+
+        define_method(:"with_#{s}_followers_by_type") do |*args|
           follow_array = self.all.to_a.sort! { |a, b| a.followers_count_by_type(args[0]) <=> b.followers_count_by_type(args[0]) }
-          if $1 == "max"
-            max = follow_array[-1].followers_count_by_type(args[0])
-            follow_array.select { |c| c.followers_count_by_type(args[0]) == max }
-          elsif $1 == "min"
-            min = follow_array[0].followers_count
-            follow_array.select { |c| c.followers_count_by_type(args[0]) == min }
-          end
-        else
-          super
+          num = follow_array[-1].followers_count_by_type(args[0])
+          follow_array.select { |c| c.followers_count_by_type(args[0]) == num }
         end
       end
+
+      #def method_missing(name, *args)
+      #  if name.to_s =~ /^with_(max|min)_followers$/i
+      #    follow_array = self.all.to_a.sort! { |a, b| a.followers_count <=> b.followers_count }
+      #    if $1 == "max"
+      #      max = follow_array[-1].followers_count
+      #      follow_array.select { |c| c.followers_count == max }
+      #    elsif $1 == "min"
+      #      min = follow_array[0].followers_count
+      #      follow_array.select { |c| c.followers_count == min }
+      #    end
+      #  elsif name.to_s =~ /^with_(max|min)_followers_by_type$/i
+      #    follow_array = self.all.to_a.sort! { |a, b| a.followers_count_by_type(args[0]) <=> b.followers_count_by_type(args[0]) }
+      #    if $1 == "max"
+      #      max = follow_array[-1].followers_count_by_type(args[0])
+      #      follow_array.select { |c| c.followers_count_by_type(args[0]) == max }
+      #    elsif $1 == "min"
+      #      min = follow_array[0].followers_count
+      #      follow_array.select { |c| c.followers_count_by_type(args[0]) == min }
+      #    end
+      #  else
+      #    super
+      #  end
+      #end
 
     end
 
@@ -98,6 +112,16 @@ module Mongo
 
     def followee_of?(model)
       0 < self.followers.by_model(model).limit(1).count * model.followees.by_model(self).limit(1).count
+    end
+
+    # return true if self is followed by some models
+    #
+    # Example:
+    #   >> @ruby.followed?
+    #   => true
+
+    def followed?
+      0 < self.followers.length
     end
 
     # get all the followers of this model, same with classmethod followers_of
