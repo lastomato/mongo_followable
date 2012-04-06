@@ -2,8 +2,6 @@
 
 Now works for both Mongoid and Mongo_Mapper!
 
-see http://www.thesika.info/articles/mongo_followable_update for details
-
 == Installation
 
 In console:
