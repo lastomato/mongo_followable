@@ -23,6 +23,12 @@ To make model followable you need to include Mongo::Followable into your model; 
     include Mongo::Followable
   end
 
+Now you can set configuration for mongo_followable in environment/*.rb:
+
+    # Note: for current version, you can only set the config once(first time the application is created).
+    #       This should be fixed in next version.
+    config.mongo_followable = { :authorization => false, :history => false } # this is default value
+
 Now you can set authorization:
     current_user.set_authorization('user', 'game') # now current_user cannot follow User and Game model
     current_user.unset_authorization('User', 'Game')

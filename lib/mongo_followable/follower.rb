@@ -4,12 +4,24 @@ module Mongo
 
     included do |base|
       if defined?(Mongoid)
-        base.field :cannot_follow, :type => Array, :default => []
-        base.field :follow_history, :type => Array, :default => []
+        if CONFIG[:authorization]
+          base.field :cannot_follow, :type => Array, :default => []
+        end
+
+        if CONFIG[:history]
+          base.field :follow_history, :type => Array, :default => []
+        end
+
         base.has_many :followees, :class_name => "Follow", :as => :following, :dependent => :destroy
       elsif defined?(MongoMapper)
-        base.key :cannot_follow, :type => Array, :default => []
-        base.key :follow_history, :type => Array, :default => []
+        if CONFIG[:authorization]
+          base.key :cannot_follow, :type => Array, :default => []
+        end
+
+        if CONFIG[:history]
+          base.key :follow_history, :type => Array, :default => []
+        end
+
         base.many :followees, :class_name => "Follow", :as => :following, :dependent => :destroy
       end
     end
@@ -89,20 +101,22 @@ module Mongo
     #   >> @jim.set_authorization('group', 'user')
     #   => true
 
-    def set_authorization(*models)
-      models.each do |model|
-        self.cannot_follow << model.safe_capitalize
+    if CONFIG[:authorization]
+      define_method(:set_authorization) do |*models|
+        models.each do |model|
+          self.cannot_follow << model.safe_capitalize
+        end
+        self.save
       end
-      self.save
-    end
 
-    #unset which mongoid user cannot follow
+      #unset which mongoid user cannot follow
 
-    def unset_authorization(*models)
-      models.each do |model|
-        self.cannot_follow -= [model.safe_capitalize]
+      define_method(:unset_authorization) do |*models|
+        models.each do |model|
+          self.cannot_follow -= [model.safe_capitalize]
+        end
+        self.save
       end
-      self.save
     end
 
     # see if this model is follower of some model
@@ -153,12 +167,18 @@ module Mongo
       end
 
       models.each do |model|
-        unless model == self or self.follower_of?(model) or model.followee_of?(self) or self.cannot_follow.include?(model.class.name) or model.cannot_followed.include?(self.class.name)
+        term = CONFIG[:authorization] ? (self.cannot_follow.include?(model.class.name) or model.cannot_followed.include?(self.class.name)) : false
+
+        unless model == self or self.follower_of?(model) or model.followee_of?(self) or term
           model.followers.create!(:f_type => self.class.name, :f_id => self.id.to_s)
-          model.followed_history << self.class.name + '_' + self.id.to_s
-          model.save
           self.followees.create!(:f_type => model.class.name, :f_id => model.id.to_s)
-          self.follow_history << model.class.name + '_' + model.id.to_s
+
+          if CONFIG[:history]
+            model.followed_history << self.class.name + '_' + self.id.to_s
+            self.follow_history << model.class.name + '_' + model.id.to_s
+          end
+
+          model.save
           self.save
         end
       end
@@ -211,12 +231,14 @@ module Mongo
     #   >> @jim.ever_follow
     #   => [@ruby]
 
-    def ever_follow
-      follow = []
-      self.follow_history.each do |h|
-        follow << h.split('_')[0].constantize.find(h.split('_')[1])
+    if CONFIG[:history]
+      define_method(:ever_follow) do
+        follow = []
+        self.follow_history.each do |h|
+          follow << h.split('_')[0].constantize.find(h.split('_')[1])
+        end
+        follow
       end
-      follow
     end
 
     # return if there is any common followees
