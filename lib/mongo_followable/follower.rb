@@ -192,7 +192,9 @@ module Mongo
       end
 
       models.each do |model|
-        unless model == self or !self.follower_of?(model) or !model.followee_of?(self) or self.cannot_follow.include?(model.class.name) or model.cannot_followed.include?(self.class.name)
+        term = CONFIG[:authorization] ? (self.cannot_follow.include?(model.class.name) or model.cannot_followed.include?(self.class.name)) : false
+
+        unless model == self or !self.follower_of?(model) or !model.followee_of?(self) or term
           model.followers.by_model(self).first.destroy
           self.followees.by_model(model).first.destroy
         end
