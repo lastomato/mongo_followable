@@ -1,5 +1,7 @@
 module Mongo
   module Followable
-    VERSION = "0.3.0"
+    module Configuration
+
+    end
   end
 end

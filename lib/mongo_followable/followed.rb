@@ -1,27 +1,11 @@
 module Mongo
-  module Followable
+  module Followed
     extend ActiveSupport::Concern
 
     included do |base|
       if defined?(Mongoid)
-        if CONFIG[:authorization]
-          base.field :cannot_followed, :type => Array, :default => []
-        end
-
-        if CONFIG[:history]
-          base.field :followed_history, :type => Array, :default => []
-        end
-
         base.has_many :followers, :class_name => "Follow", :as => :followable, :dependent => :destroy
       elsif defined?(MongoMapper)
-        if CONFIG[:authorization]
-          base.key :cannot_followed, :type => Array, :default => []
-        end
-
-        if CONFIG[:history]
-          base.key :followed_history, :type => Array, :default => []
-        end
-
         base.many :followers, :class_name => "Follow", :as => :followable, :dependent => :destroy
       end
     end
@@ -95,29 +79,6 @@ module Mongo
 
     end
 
-    # set which mongoid cannot follow self
-    #
-    # Example:
-    #   >> @ruby.set_authorization('user')
-    #   => true
-
-    if CONFIG[:authorization]
-      define_method(:set_authorization) do |*models|
-        models.each do |model|
-
-          self.cannot_followed << model.safe_capitalize
-        end
-        self.save
-      end
-
-      define_method(:unset_authorization) do |*models|
-        models.each do |model|
-          self.cannot_followed -= [model.safe_capitalize]
-        end
-        self.save
-      end
-    end
-
     # see if this model is followee of some model
     #
     # Example:
@@ -154,9 +115,7 @@ module Mongo
       end
 
       models.each do |model|
-        term = CONFIG[:authorization] ? (self.cannot_followed.include?(model.class.name) or model.cannot_follow.include?(self.class.name)) : false
-
-        unless model == self or !self.followee_of?(model) or !model.follower_of?(self) or term
+        unless model == self or !self.followee_of?(model) or !model.follower_of?(self)
           model.followees.by_model(self).first.destroy
           self.followers.by_model(model).first.destroy
         end
@@ -197,22 +156,6 @@ module Mongo
 
     def followers_count_by_type(type)
       self.followers.by_type(type).count
-    end
-
-    # see model's followed history
-    #
-    # Example:
-    #   >> @ruby.ever_followed
-    #   => [@jim]
-
-    if CONFIG[:history]
-      define_method(:ever_followed) do
-        follow = []
-        self.followed_history.each do |h|
-          follow << h.split('_')[0].constantize.find(h.split('_')[1])
-        end
-        follow
-      end
     end
 
     # return if there is any common followers

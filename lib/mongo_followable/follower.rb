@@ -4,24 +4,8 @@ module Mongo
 
     included do |base|
       if defined?(Mongoid)
-        if CONFIG[:authorization]
-          base.field :cannot_follow, :type => Array, :default => []
-        end
-
-        if CONFIG[:history]
-          base.field :follow_history, :type => Array, :default => []
-        end
-
         base.has_many :followees, :class_name => "Follow", :as => :following, :dependent => :destroy
       elsif defined?(MongoMapper)
-        if CONFIG[:authorization]
-          base.key :cannot_follow, :type => Array, :default => []
-        end
-
-        if CONFIG[:history]
-          base.key :follow_history, :type => Array, :default => []
-        end
-
         base.many :followees, :class_name => "Follow", :as => :following, :dependent => :destroy
       end
     end
@@ -95,30 +79,6 @@ module Mongo
 
     end
 
-    # set which mongoid user cannot follow
-    #
-    # Example:
-    #   >> @jim.set_authorization('group', 'user')
-    #   => true
-
-    if CONFIG[:authorization]
-      define_method(:set_authorization) do |*models|
-        models.each do |model|
-          self.cannot_follow << model.safe_capitalize
-        end
-        self.save
-      end
-
-      #unset which mongoid user cannot follow
-
-      define_method(:unset_authorization) do |*models|
-        models.each do |model|
-          self.cannot_follow -= [model.safe_capitalize]
-        end
-        self.save
-      end
-    end
-
     # see if this model is follower of some model
     #
     # Example:
@@ -167,9 +127,7 @@ module Mongo
       end
 
       models.each do |model|
-        term = CONFIG[:authorization] ? (self.cannot_follow.include?(model.class.name) or model.cannot_followed.include?(self.class.name)) : false
-
-        unless model == self or self.follower_of?(model) or model.followee_of?(self) or term
+        unless model == self or self.follower_of?(model) or model.followee_of?(self)
           model.followers.create!(:f_type => self.class.name, :f_id => self.id.to_s)
           self.followees.create!(:f_type => model.class.name, :f_id => model.id.to_s)
 
@@ -192,9 +150,7 @@ module Mongo
       end
 
       models.each do |model|
-        term = CONFIG[:authorization] ? (self.cannot_follow.include?(model.class.name) or model.cannot_followed.include?(self.class.name)) : false
-
-        unless model == self or !self.follower_of?(model) or !model.followee_of?(self) or term
+        unless model == self or !self.follower_of?(model) or !model.followee_of?(self)
           model.followers.by_model(self).first.destroy
           self.followees.by_model(model).first.destroy
         end
@@ -225,22 +181,6 @@ module Mongo
 
     def followees_count_by_type(type)
       self.followees.by_type(type).count
-    end
-
-    # see user's follow history
-    #
-    # Example:
-    #   >> @jim.ever_follow
-    #   => [@ruby]
-
-    if CONFIG[:history]
-      define_method(:ever_follow) do
-        follow = []
-        self.follow_history.each do |h|
-          follow << h.split('_')[0].constantize.find(h.split('_')[1])
-        end
-        follow
-      end
     end
 
     # return if there is any common followees
