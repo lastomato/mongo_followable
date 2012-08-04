@@ -4,6 +4,8 @@ require "bundler/setup"
 require "database_cleaner"
 require "rspec"
 
+CONFIG = { :authorization => true, :history => true }
+
 if rand > 0.5
   puts 'Mongoid'
   require 'mongoid'

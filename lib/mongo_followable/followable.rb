@@ -236,12 +236,8 @@ module Mongo
     end
 
     private
-      def rebuild_instances(follows)
-        follow_list = []
-        follows.each do |follow|
-          follow_list << follow.f_type.constantize.find(follow.f_id)
-        end
-        follow_list
-      end
+    def rebuild_instances(follows)
+      follows.group_by { |f| f.f_type }.inject([]) { |s, (k, v)| s += k.constantize.find(v.map(&:f_id)).to_a }
+    end
   end
 end
