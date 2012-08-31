@@ -9,29 +9,33 @@ In console:
 or in Gemfile:
   gem 'mongo_followable'
 
+== Notice
+
+Please read following documentation first. Since 0.3.2, some apis have been changed. Sorry for the inconvenience.
+
+If you want to remove `follow_history` and `followed_history` fields totally from your database after you decide not to use follow/followed history feature, do this:
+
+    # in the rails console, taking user as an example:
+    User.all.each { |u| u.unset(:follow_history) } # this will remove the follow_history field
+
 == Usage
 
 To make model followable you need to include Mongo::Followable into your model; You also need to include Mongo::Follower in your follower model:
   class User
     include Mongoid::Document  #for Mongo_Mapper users, this line of code should be include MongoMapper::Document
-    include Mongo::Followable
-    include Mongo::Follower
+    include Mongo::Followable::Followed
+    include Mongo::Followable::Follower
+    include Mongo::Followable::History # you have to add this line to enable follow/followed history
   end
 
   class Group
     include Mongoid::Document  #for Mongo_Mapper users, this line of code should be include MongoMapper::Document
-    include Mongo::Followable
+    include Mongo::Followable::Followed
+    include Mongo::Followable::History # you have to add this line to enable follow/followed history
   end
 
-Now you can set configuration for mongo_followable in environment/*.rb:
-
-    # Note: for current version, you can only set the config once(first time the application is created).
-    #       This should be fixed in next version.
-    config.mongo_followable = { :authorization => false, :history => false } # this is default value
-
-Now you can set authorization:
-    current_user.set_authorization('user', 'game') # now current_user cannot follow User and Game model
-    current_user.unset_authorization('User', 'Game')
+I've decided to remove authorization because it is quite inefficient to keep this field for every record in the database.
+However, it's possible that I'll add it back as a plugin in the future.
 
 And then you can follow and unfollow:
 
@@ -104,6 +108,20 @@ You can also get a model's follow/followed history:
     @user.ever_follow
     @group.ever_followed
 
+or to tell if ever follow/followed by someone:
+
+    @user.ever_follow? @some_group
+    @group.ever_followed? @some_user
+
+Sure you can clear the histories:
+
+    @user.clear_history!
+
+    #or more specific:
+
+    @user.clear_follow_history!
+    @group.clear_followed_history!
+
 Another feature is to get a list of models which has the most followers/followees:
 
     User.with_max_followees
@@ -126,7 +144,7 @@ And see what the common followers/followees are:
     @user.common_followers_with(@group)
     
 * Any bug or issue, please send me an email: ustc.flyingfox@gmail.com
-
+                                                  include Mongo::Followable::History # you have to add this line to enable follow/followed history
 == TODO
 
 * inter-models followable #FINISHED#
@@ -136,6 +154,7 @@ And see what the common followers/followees are:
 * add authorization to followable models #FINISHED#
 * common followers/followees #FINISHED#
 * add support for mongo_mapper in next version #FINISHED#
+* implement plugins: confirmation, authorization etc.
 
 !!If you have any advice, plese do not hesitate to tell me!!
 

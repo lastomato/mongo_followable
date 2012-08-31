@@ -1,7 +1,5 @@
 module Mongo
-  module Followable
-    module Authorization
+  module Authorization
 
-    end
   end
 end

@@ -1,7 +1,5 @@
 module Mongo
-  module Followable
-    module Confirmation
+  module Confirmation
 
-    end
   end
 end

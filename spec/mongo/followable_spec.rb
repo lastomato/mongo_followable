@@ -46,6 +46,10 @@ describe Mongo::Followable do
         u.ever_follow.should =~ [@v, @g]
         @v.ever_followed.should == [u]
 
+        u.ever_follow?(@v).should be_true
+        u.ever_follow?(@g).should be_true
+        @v.ever_followed?(u).should be_true
+
         u.common_followees?(@v).should be_false
         @v.common_followers?(u).should be_false
         u.common_followees_with(@v).should == []
@@ -98,6 +102,12 @@ describe Mongo::Followable do
 
         u.ever_follow.should =~ [@g, @v]
         @g.ever_followed.should == [u]
+
+        u.clear_follow_history!
+        u.ever_follow.should == []
+
+        @g.clear_history!
+        @g.ever_followed.should == []
 
         u.common_followees?(@v).should be_false
         @v.common_followers?(@g).should be_true
