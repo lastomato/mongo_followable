@@ -4,7 +4,7 @@ require "mongo_followable/version"
 
 Gem::Specification.new do |s|
   s.name        = "mongo_followable"
-  s.version     = MongoFollowable::VERSION
+  s.version     = Mongo::Followable::VERSION
   s.authors     = ["Jie Fan"]
   s.email       = ["ustc.flyingfox@gmail.com"]
   s.homepage    = "https://github.com/lastomato/mongo_followable"

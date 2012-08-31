@@ -1,5 +1,6 @@
 class ChildUser
   include Mongoid::Document
-  include Mongo::Followable
-  include Mongo::Follower
+  include Mongo::Followable::Followed
+  include Mongo::Followable::Follower
+  include Mongo::Followable::History
 end
