@@ -1,8 +1,5 @@
-require "benchmark"
-require "rubygems"
-require "bundler/setup"
-require "mongoid"
 require "spec_helper"
+require "benchmark"
 
 users = []
 1000.times { users << User.create! }

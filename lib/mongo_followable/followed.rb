@@ -6,8 +6,10 @@ module Mongo
       included do |base|
         if defined?(Mongoid)
           base.has_many :followers, :class_name => "Follow", :as => :followable, :dependent => :destroy
+          @db = Mongoid.default_session
         elsif defined?(MongoMapper)
           base.many :followers, :class_name => "Follow", :as => :followable, :dependent => :destroy
+          @db = MongoMapper.database
         end
       end
 
@@ -135,7 +137,13 @@ module Mongo
           pipeline: pipeline
         }
 
-        users_hash = Mongoid.default_session.command(command)['result']
+        if defined?(Mongoid)
+          db = Mongoid.default_session
+        elsif defined?(MongoMapper)
+          db = MongoMapper.database
+        end
+
+        users_hash = db.command(command)['result']
 
         ids = users_hash.map {|e| e['f_id']}
 
