@@ -106,8 +106,46 @@ module Mongo
       #   >> @ruby.all_followers
       #   => [@jim]
 
-      def all_followers
-        rebuild_instances(self.followers)
+      def all_followers(page = nil, per_page = nil)
+        pipeline = [
+          { '$project' =>
+            { _id: 0,
+              f_id: 1,
+              followable_id: 1,
+              followable_type: 1
+            }
+          },
+          {
+            '$match' => {
+              'followable_id' => self.id,
+              'followable_type' => self.class.name.split('::').last
+            }
+          }
+        ]
+
+        if page && per_page
+          pipeline << { '$skip' => (page * per_page) }
+          pipeline << { '$limit' => per_page }
+        end
+
+        pipeline << { '$project' => { f_id: 1 } }
+
+        command = {
+          aggregate: 'follows',
+          pipeline: pipeline
+        }
+
+        if defined?(Mongoid)
+          db = Mongoid.default_session
+        elsif defined?(MongoMapper)
+          db = MongoMapper.database
+        end
+
+        users_hash = db.command(command)['result']
+
+        ids = users_hash.map {|e| e['f_id']}
+
+        User.where(id: { '$in' => ids }).all.entries
       end
 
       def unfollowed(*models, &block)

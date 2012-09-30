@@ -1,0 +1,7 @@
+test:
+  sessions:
+    default:
+      database: mongo_followable_test
+      hosts:
+        - localhost:27017
+

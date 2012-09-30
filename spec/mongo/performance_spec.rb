@@ -1,17 +1,5 @@
+require "spec_helper"
 require "benchmark"
-require "rubygems"
-require "bundler/setup"
-require "mongoid"
-require "../../lib/mongo_followable"
-require "../../spec/mongoid/group"
-require "../../spec/mongoid/user"
-
-Mongoid.configure do |config|
-  name = 'mongo_followable_test'
-  host = 'localhost'
-  config.master = Mongo::Connection.new.db(name)
-  config.autocreate_indexes = true
-end
 
 users = []
 1000.times { users << User.create! }
