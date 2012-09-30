@@ -6,10 +6,8 @@ module Mongo
       included do |base|
         if defined?(Mongoid)
           base.has_many :followers, :class_name => "Follow", :as => :followable, :dependent => :destroy
-          @db = Mongoid.default_session
         elsif defined?(MongoMapper)
           base.many :followers, :class_name => "Follow", :as => :followable, :dependent => :destroy
-          @db = MongoMapper.database
         end
       end
 
